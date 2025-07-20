@@ -55,8 +55,7 @@ class InsertExpenses implements ShouldQueue
             Log::error('Erro ao inserir despesas', [
                 'deputy_id' => $this->deputyId,
                 'deputy_identifier' => $this->deputyIdentifier,
-                'erro2' => $th->getMessage(),
-                'erro' => $th->getLine(),
+                'erro' => $th->getMessage(),
             ]);
         }
     }

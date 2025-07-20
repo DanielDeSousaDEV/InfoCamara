@@ -10,9 +10,9 @@ class DeputyController extends Controller
     {
         $deputies = Deputy::all();
         
-        return response(
-            $deputies,    
-        );
+        return response([
+            'data' => $deputies,      
+        ]);
     }
 
     public function show(int $id)
@@ -22,17 +22,17 @@ class DeputyController extends Controller
 
             if (!$deputy) {
                 return response([
-                    'message' => 'Não foi possivel encontrar o deputado',
+                    'data' => [],
                 ], 404);
             }
             
-            return response(
-                $deputy,    
-            );
+            return response([
+                'data' => $deputy,  
+            ]);
 
         } catch (\Throwable $th) {
             return response([
-                'message' => 'Ocorreu um erro ao carregar os dados',
+                'data' => [],
             ], 500);
         }
     }
@@ -44,19 +44,19 @@ class DeputyController extends Controller
 
             if (!$deputy) {
                 return response([
-                    'message' => 'Não foi possivel encontrar o deputado',
+                    'data' => [],
                 ], 404);
             }
 
             $expenses = $deputy->expenses;
             
-            return response(
-                $expenses,    
-            );
+            return response([
+                'data' => $expenses,    
+            ]);
 
         } catch (\Throwable $th) {
             return response([
-                'message' => 'Ocorreu um erro ao carregar os dados',
+                'data' => [],
             ], 500);
         }
     }
