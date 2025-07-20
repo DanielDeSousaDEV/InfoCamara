@@ -1,9 +1,20 @@
 <div class='p-2 bg-warning rounded-lg flex flex-col items-center gap-1 text-zinc-900'>
-    <i data-lucide="rotate-ccw" class="cursor-pointer" data-modal-target="refresh-deputies-modal" data-modal-toggle="refresh-deputies-modal"></i>
-    <div>
+    
+    <button data-modal-toggle="refresh-deputies-modal">
+        <i data-lucide="rotate-ccw" class="cursor-pointer select-all" data-modal-target="refresh-deputies-modal"></i>
+    </button>
+    <div class='select-none'>
         <p class='text-xs text-center'>Ultima vez carregado:</p>
         <p class='text-xs text-center'>
-            {{ \Carbon\Carbon::parse(now())->diffForHumans() }}
+            @php
+                $fetch = \App\Models\ApiFetch::valid()->first();
+            @endphp
+
+            @if ($fetch)
+                {{ \Carbon\Carbon::parse($fetch->fetched_at)->diffForHumans() }}
+            @else
+                Nenhum registro válido encontrado.
+            @endif
         </p>
     </div>
 </div>
@@ -37,7 +48,7 @@
             </div>
             <!-- Modal footer -->
             <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="refresh-deputies-modal" type="button" class="text-white bg-danger hover:bg-danger/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sim, limpar o banco</button>
+                <button onclick="window.open('/waiting')" type="button" class="text-white bg-danger hover:bg-danger/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sim, limpar o banco</button>
                 <button data-modal-hide="refresh-deputies-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-300 focus:z-10 focus:ring-4 focus:ring-gray-100">Cancelar</button>
             </div>
         </div>
