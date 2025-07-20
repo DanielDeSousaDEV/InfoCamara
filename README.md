@@ -26,7 +26,7 @@ Aplicação desenvolvida para o processo seletivo da empresa Retta com o objetiv
 - Clone o repositorio com `git clone https://github.com/DanielDeSousaDEV/Life-Vet-Server.git`
 - Certifique-se de ter o Docker instalado e rodando na sua maquina
 - Após isso copie o `.env.example` e o renomeie o novo arquivo como `.env`
-- Após isso execute o comando `docker compose up -d` na raiz do projeto para subir os conteiners (isso pode levar alguns minutos)
+- Após isso execute o comando `docker compose up` na raiz do projeto para subir os conteiners (isso pode levar alguns minutos)
 
 > **OBS:**
 >
@@ -34,7 +34,7 @@ Aplicação desenvolvida para o processo seletivo da empresa Retta com o objetiv
 
 - Após espere alguns minutos e sua aplicação estará rodando em [`http://localhost`](http://localhost)
 - Para popular o banco com os dados da Api entre em [`http://localhost`](http://localhost) e aperte no icone de carregamento na navbar no canto superior direito
-- Caso queria parar e deletar os conteiners execute `exit` para sair do conteiner e `docker compose down` para para os conteiners 
+- Caso queria parar o conteiner da aplcação e aperte `ctrl + c` e logo em seguida `docker compose down` para apagar os conteiners 
 
 ## Contato
 - **Email** - danieldesousa.dev@gmail.com
