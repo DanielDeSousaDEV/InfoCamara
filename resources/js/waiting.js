@@ -7,7 +7,7 @@ const homeButton = document.querySelector('#homeButton')
 let intervalId;
 
 async function populateDatabase() {
-    // await axios.get('/api/populate')
+    await axios.get('/api/populate')
 }
 
 async function reloadPercent() {
@@ -17,8 +17,6 @@ async function reloadPercent() {
         const data = response.data
     
         const porcent = (data.current / data.total) * 100
-    
-        console.log(porcentFill, porcentText,porcent,data);
         
         porcentFill.style.width = `${porcent}%`;
     

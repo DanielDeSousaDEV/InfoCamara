@@ -93,8 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $modalElement.querySelector('p#name').innerHTML = data.name
             $modalElement.querySelector('p#email').innerHTML = data.email
             $modalElement.querySelector('p#party_acronym').innerHTML = data.party_acronym
-            $modalElement.querySelector('img#photo').innerHTML = data.photo
-            // $modalElement.querySelector('img#photo').src = data.photo
+            $modalElement.querySelector('img#photo').src = data.photo
             $modalElement.querySelector('p#state_of_birth').innerHTML = data.state_of_birth
 
             expensesTable.ajax.url(`/api/deputies/${deputyId}/expenses`).load();

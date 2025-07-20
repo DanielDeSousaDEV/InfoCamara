@@ -5,9 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalOptions = {
         closable: true,
-        onShow: () => {
-            console.log('modal is shown');
-        },
     };
 
     const instanceOptions = {
