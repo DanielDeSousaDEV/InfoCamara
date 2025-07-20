@@ -35,5 +35,5 @@ async function reloadPercent() {
 }
 
 populateDatabase().then(() => {
-    intervalId = setInterval(reloadPercent, 4000);
+    intervalId = setInterval(reloadPercent, 6000);
 })
