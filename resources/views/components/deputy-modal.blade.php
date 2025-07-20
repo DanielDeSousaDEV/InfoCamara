@@ -64,19 +64,29 @@
                                     <tr>
                                         <th>id</th>
                                         <th>nome</th>
-                                        <th>email</th>
+                                        <th>data</th>
                                     </tr>
                                 </thead>
                                 <tbody class='bg-gray-900/90 max-h-[400px] overflow-y-auto'>
                                     <tr>
                                         <td>1</td>
                                         <td>daniel</td>
-                                        <td>daniel@tals</td>
+                                        <td>{{ now() }}</td>
+                                        <td>
+                                            <button class='btn-show-deputy-data shrink-0 hover:bg-gray-800/90 transition-colors rounded-sm' title='Ver Detalhes' onclick="window.open('${data.document_url}', '_blank')">
+                                                <i data-lucide='file' class='size-8 rounded-md stroke-secondary'></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>1</td>
                                         <td>daniel</td>
-                                        <td>daniel@tals</td>
+                                        <td>{{ now() }}</td>
+                                        <td>
+                                            <button class='btn-show-deputy-data shrink-0 hover:bg-gray-800/90 transition-colors rounded-sm' title='Ver Detalhes' onclick="window.open('${data.document_url}', '_blank')">
+                                                <i data-lucide='file' class='size-8 rounded-md stroke-secondary'></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -86,7 +96,7 @@
             </div>
             <!-- Modal footer -->
             <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button onclick='deputyModal.hide()' type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-300 focus:z-10 focus:ring-4 focus:ring-gray-100">Fechar modal</button>
+                <button onclick='deputyModal.hide()' type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-300 focus:z-10 focus:ring-4 focus:ring-gray-100">Fechar</button>
             </div>
         </div>
     </div>

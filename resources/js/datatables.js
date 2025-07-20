@@ -1,6 +1,7 @@
 import DataTable from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import language from 'datatables.net-plugins/i18n/pt-BR.mjs';
+import { format } from 'date-fns';
 import { createIcons, icons } from 'lucide';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,10 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
         columns: [
             { title: 'Id', data: 'id', width: '15px' },
             { title: 'Tipo', data: 'expense_type' },
-            { title: 'Data', data: 'issue_date' },
-            {
+            { 
+                title: 'Data', 
+                orderable: false,
                 data: null,
+                searchable: false,
+                render: function (data, type, row, meta) {
+                    let parsed
+                    try {
+                        parsed = format(new Date(data.issue_date), 'PPPP');
+                    } catch (error) {
+                        parsed = 'N/A'
+                    }
+                    return parsed;
+                }
+            },
+            {
                 title: 'Ações',
+                data: null,
                 orderable: false,
                 searchable: false,
                 width: '125px',
