@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('expense_type');
             $table->string('document_type');
             $table->string('issue_date');
-            $table->string('document_url');
+            $table->string('document_url')
+                ->nullable();
             $table->string('supplier_name');
             $table->foreignIdFor(Deputy::class)
                 ->constrained()
