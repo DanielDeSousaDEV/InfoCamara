@@ -1,23 +1,17 @@
-<div class='p-2 bg-warning rounded-lg flex flex-col items-center gap-1 text-zinc-900'>
-    
-    <button data-modal-toggle="refresh-deputies-modal">
+@php
+    $lastFetch = \App\Models\ApiFetch::valid()->first();
+@endphp
+
+<div class='relative'>
+    <button data-modal-toggle="refresh-deputies-modal" data-tooltip-target="tooltip-animation" class='p-2 bg-warning rounded-lg flex flex-row items-center gap-3 text-zinc-900'>
         <i data-lucide="rotate-ccw" class="cursor-pointer select-all" data-modal-target="refresh-deputies-modal"></i>
     </button>
-    <div class='select-none'>
-        <p class='text-xs text-center'>Ultima vez carregado:</p>
-        <p class='text-xs text-center'>
-            @php
-                $fetch = \App\Models\ApiFetch::valid()->first();
-            @endphp
-
-            @if ($fetch)
-                {{ \Carbon\Carbon::parse($fetch->fetched_at)->diffForHumans() }}
-            @else
-                Nenhum registro válido encontrado.
-            @endif
-        </p>
+    
+    <div id="tooltip-animation" role="tooltip" class="absolute z-10 invisible inline-block px-3 whitespace-nowrap py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+        Recarregar dados
     </div>
 </div>
+
 
 <!-- Main modal -->
 <div id="refresh-deputies-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -43,7 +37,10 @@
                     A operação pode levar alguns minutos para ser completamente processada.
                 </p>
                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    Esta ação é irreversível. Deseja continuar?.
+                    Esta ação é irreversível. Deseja continuar?
+                </p>
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    Tempo desde a ultima atualização: {{ \Carbon\Carbon::parse($lastFetch->fetched_at)->diffForHumans() }}
                 </p>
             </div>
             <!-- Modal footer -->
