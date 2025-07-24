@@ -35,14 +35,14 @@ class PopulateController extends Controller
     public function check()
     {
         try {
-            $apiFetch = ApiFetch::valid()->latest()->first();
+            $apiFetch = ApiFetch::latest()->first();
 
             if (!$apiFetch) {
                 Log::error('ocorreu um erro ao checar o status da população do banco');
 
                 return response([
                     'message' => 'ocorreu um erro ao checar o status da população do banco'
-                ], 500);
+                ], 404);
             }
     
             return response($apiFetch);
