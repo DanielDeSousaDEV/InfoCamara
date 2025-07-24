@@ -18,6 +18,6 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
-        host: '0.0.0.0'
+        host: process.env.VITE_HOST || '127.0.0.1',
     }
 });
