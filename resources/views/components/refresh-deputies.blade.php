@@ -39,9 +39,11 @@
                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     Esta ação é irreversível. Deseja continuar?
                 </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    Tempo desde a ultima atualização: {{ \Carbon\Carbon::parse($lastFetch->fetched_at)->diffForHumans() }}
-                </p>
+                @if ($lastFetch)
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Tempo desde a ultima atualização: {{ \Carbon\Carbon::parse($lastFetch->fetched_at)->diffForHumans() }}
+                    </p>
+                @endif
             </div>
             <!-- Modal footer -->
             <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
