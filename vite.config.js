@@ -21,5 +21,9 @@ export default defineConfig({
         host: process.env.VITE_HOST || '0.0.0.0',
         port: Number(process.env.VITE_PORT) || 5173,
         origin: process.env.VITE_URL || 'http://localhost:5173',
+        allowedHosts: [
+            'infocamara-production.up.railway.app',
+            'hopper.proxy.rlwy.net'
+        ]
     },
 });
