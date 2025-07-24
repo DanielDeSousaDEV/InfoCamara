@@ -46,6 +46,7 @@ COPY ./apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 RUN php artisan package:discover --ansi
+RUN composer update
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
