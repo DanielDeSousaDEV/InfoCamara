@@ -7,7 +7,7 @@ Aplicação desenvolvida para o processo seletivo da empresa Retta com o objetiv
 - [x] Visualização dos deputados
 - [x] Visualização das despesas de cada deputado
 - [x] Integração com a Api da câmara
-- [x] Interface simples e intuitiva
+- [x] Interface simples, responsiva e intuitiva
 
 ## Tecnologias e libs usadas
 - **Laravel** – API robusta.
